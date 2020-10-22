@@ -17,7 +17,7 @@ namespace Jogo_da_Forca_V2
                 bool loopEscolha = true;
                 do
                 {
-                    Console.Clear();
+                    Console.Clear(); 
                     Console.WriteLine("Bem- vindo ao\nJogo da Forca");
                     Console.WriteLine("Deseja jogar contra o Jogador ou contra a Maquina?");
                     Console.WriteLine("Digite:\n1 para Jogador\n2 para Maquina\n3 para sair");

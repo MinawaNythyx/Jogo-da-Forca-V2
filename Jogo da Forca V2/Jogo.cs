@@ -14,9 +14,10 @@ namespace Jogo_da_Forca_V2
             string secretWord = word.ConvertWord(palavra);
             int errors = 0;
             string usedChar = "";
+            Graphics graphics = new Graphics();
             do
             {
-                Graphics(secretWord, palavra, dica, errors);
+                graphics.Graphic(secretWord, palavra, dica, errors);
 
                 Console.WriteLine($"\n{usedChar}\nDigite a letra ou a palavra");
                 string cha = Console.ReadLine(); 
@@ -58,77 +59,10 @@ namespace Jogo_da_Forca_V2
             } while (loopGame);
         }
 
-        #region Graphics
-        private void Graphics(string secretWord, string palavra, string dica, int errors)
-        {
-            string head = Head(errors);
-            string shoulder = Shoulder(errors);
-            string legs = Legs(errors);
-
-            Console.Clear();
-            Console.WriteLine(dica);
-            Console.WriteLine("|----------|");
-            Console.WriteLine("|          |");
-            Console.WriteLine($"|          {head}");
-            Console.WriteLine($"|         {shoulder}");
-            Console.WriteLine($"|         {legs}");
-            Console.WriteLine("|          ");
-            Console.WriteLine("|          ");
-            Console.WriteLine($"- {secretWord}");            
-        }
-
-        private string Head(int errors)
-        {
-            if(errors > 0)
-            {
-                return "O";
-            }
-            else
-            {
-                return "";
-            }
-        }
-
-        private string Shoulder(int errors)
-        {
-            if(errors == 2)
-            {
-                return "/";
-            }
-            else if(errors == 3)
-            {
-                return "/|";
-            }
-            else if(errors > 3)
-            {
-                return "/|\\";
-            }
-            else
-            {
-                return "";
-            }
-        }
-
-        private string Legs(int errors)
-        {
-            if (errors == 5)
-            {
-                return "/";
-            }
-            else if (errors > 5)
-            {
-                return "/ \\";
-            }
-            else
-            {
-                return "";
-            }
-        }
-        #endregion
-
         private bool WinLose(string condition, string palavra, string dica, int errors)
         {
-            Graphics(palavra, palavra, dica, errors);
+            Graphics graphics = new Graphics();
+            graphics.Graphic(palavra, palavra, dica, errors);
             Console.WriteLine($"YOU {condition}");
             return false;
         }
